@@ -11,7 +11,7 @@ var React = require('react/addons'),
  */
 describe('Gallery', function() {
     var config = {
-         'base_url': 'https://api.flickr.com/services/rest/?method=flickr.photos.search',
+         'base_url': 'https://api.flickr.com/services/rest/',
          'per_page': 10,
          'default_tag': 'soccer',
          'api_key': '4259ba9d328b8baa76efa6a0461cd8b6'
@@ -21,16 +21,19 @@ describe('Gallery', function() {
         <Gallery config={config} />
     );
     
+    // should render a Pager
     it ('should render a Pager', function () {
         var li = TestUtils.scryRenderedComponentsWithType(gallery, Pager);
         expect(li.length).toEqual(1);
     });
     
+    // tests renders a ThumbnailList
     it ('should render a ThumbnailList', function () {
         var li = TestUtils.scryRenderedComponentsWithType(gallery, ThumbnailList);
         expect(li.length).toEqual(1);
     });
     
+    // tests reenders Search box
     it ('should render a Search', function () {
         var li = TestUtils.scryRenderedComponentsWithType(gallery, Search);
         expect(li.length).toEqual(1);

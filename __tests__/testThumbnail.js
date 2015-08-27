@@ -3,6 +3,9 @@ var React = require("react/addons"),
    Thumbnail = require("../src/components/Thumbnail"),
    TestUtils = React.addons.TestUtils;
    
+/*
+ * Tests thumbnail.jsx
+ */
 describe("Thumbnail", function() {
     var image = {
         id: 1,

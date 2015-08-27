@@ -31,7 +31,7 @@ module.exports = React.createClass({
     },
     render: function() {
         var that = this;
-        if (this.props.loading || this.props.images.length < 1) {
+        if (this.props.loading || (this.props.images && this.props.images.length < 1)) {
             return (
                 <div className = "row imagelist">
                     <div className ="col-md-12">
@@ -56,5 +56,6 @@ module.exports = React.createClass({
                 </div>
             );
         }
+        return null;
     }
 });

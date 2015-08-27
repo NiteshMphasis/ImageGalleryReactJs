@@ -82,7 +82,7 @@ module.exports = React.createClass({
         // then needed, stop fetching
         var stopFetching = false;
         var photos = data.photos.photo;
-        if (photos.length == 0 || photos.length < this.props.config.per_page) {
+        if (!photos || photos.length == 0 || photos.length < this.props.config.per_page) {
             stopFetching = true;
         }  
         this.setState({
