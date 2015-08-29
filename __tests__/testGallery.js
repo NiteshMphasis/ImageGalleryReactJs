@@ -21,21 +21,53 @@ describe('Gallery', function() {
         <Gallery config={config} />
     );
     
-    // should render a Pager
-    it ('should render a Pager', function () {
-        var li = TestUtils.scryRenderedComponentsWithType(gallery, Pager);
-        expect(li.length).toEqual(1);
+    // tests Gallery without a search temr
+    // shouldn't render a Pager or Image List
+    describe ('Gallery without search term', function() {
+        // tests renders Search box
+        it ('should render a Search', function () {
+            var li = TestUtils.scryRenderedComponentsWithType(gallery, Search);
+            expect(li.length).toEqual(1);
+        });
+        
+        // should not render a Pager
+        it ('should not render a Pager', function () {
+            var li = TestUtils.scryRenderedComponentsWithType(gallery, Pager);
+            expect(li.length).toEqual(0);
+        });
+
+        // tests not render a ThumbnailList
+        it ('should render a ThumbnailList', function () {
+            var li = TestUtils.scryRenderedComponentsWithType(gallery, ThumbnailList);
+            expect(li.length).toEqual(0);
+        });  
     });
     
-    // tests renders a ThumbnailList
-    it ('should render a ThumbnailList', function () {
-        var li = TestUtils.scryRenderedComponentsWithType(gallery, ThumbnailList);
-        expect(li.length).toEqual(1);
-    });
+    // tests Gallery with search term set
+    // should render Pager and Search Box and ImageList
+    describe ('Gallery with search term', function() {
+        // tests renders Search box
+        it ('should render a Search', function () {
+            gallery.setSearchValue('test');
+            expect(gallery.state.search).toEqual('test');
+            var li = TestUtils.scryRenderedComponentsWithType(gallery, Search);
+            expect(li.length).toEqual(1);
+        });
     
-    // tests renders Search box
-    it ('should render a Search', function () {
-        var li = TestUtils.scryRenderedComponentsWithType(gallery, Search);
-        expect(li.length).toEqual(1);
+        // should render a Pager
+        it ('should render a Pager', function () {
+            gallery.setSearchValue('test');
+            expect(gallery.state.search).toEqual('test');
+            var li = TestUtils.scryRenderedComponentsWithType(gallery, Pager);
+            expect(li.length).toEqual(1);
+        });
+
+        // tests renders a ThumbnailList
+        it ('should render a ThumbnailList', function () {
+            gallery.setSearchValue('test');
+            expect(gallery.state.search).toEqual('test');
+            var li = TestUtils.scryRenderedComponentsWithType(gallery, ThumbnailList);
+            expect(li.length).toEqual(1);
+        }); 
     });
 });

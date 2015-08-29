@@ -121,7 +121,7 @@ module.exports = React.createClass({
     },
     render: function() {
         // there was an error making the request
-        if (this.state.error) {
+        if (this.state.error === true) {
             return (
                 <div id="image-gallery" className="container">
                     <div className = "row">
@@ -135,7 +135,7 @@ module.exports = React.createClass({
             );  
         }
         // no error, display
-        if (this.state.search) { 
+        if (this.state.search !== null) { 
             return (
                 <div id="image-gallery" className="container">
                     <div className="header">
@@ -157,8 +157,8 @@ module.exports = React.createClass({
                     <Search setSearchValue={this.setSearchValue} />
                      <p align = "center">
                         What are you looking for? Use the search box above.
-                    </p>
-                </div>
+                     </p>
+                 </div>
             );
         }
     }
