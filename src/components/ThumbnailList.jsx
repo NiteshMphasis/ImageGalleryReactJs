@@ -12,6 +12,8 @@ module.exports = React.createClass({
         };
     },
     flickrPhotoUrl: function(image, size_text) {
+        // map flickr size text to letter
+        // flickr accepts
         var sizeToLetterMap = {
               small_square: 's',
               large_square: 'q',
@@ -31,11 +33,11 @@ module.exports = React.createClass({
     },
     render: function() {
         var that = this;
-        if (this.props.loading || (this.props.images && this.props.images.length < 1)) {
+        if (this.props.loading || !this.props.images || (this.props.images && this.props.images.length < 1)) {
             return (
                 <div className = "row imagelist">
                     <div className ="col-md-12">
-                        {this.props.loading ? 'Loading...' : 'No images found'}
+                        {this.props.loading ? 'Loading...' : 'No images were found.'}
                     </div>
                 </div>
             )

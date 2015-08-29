@@ -1,6 +1,10 @@
 /** @jsx React.DOM */
 var React = require('react')
 
+/*
+ * Shows image that when you click 
+ * on it, shows overlay
+ */
 module.exports = React.createClass({
     getDefaultProps: function () {
         return {

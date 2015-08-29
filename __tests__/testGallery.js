@@ -33,7 +33,7 @@ describe('Gallery', function() {
         expect(li.length).toEqual(1);
     });
     
-    // tests reenders Search box
+    // tests renders Search box
     it ('should render a Search', function () {
         var li = TestUtils.scryRenderedComponentsWithType(gallery, Search);
         expect(li.length).toEqual(1);

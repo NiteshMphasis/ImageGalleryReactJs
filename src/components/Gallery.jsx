@@ -8,6 +8,7 @@ var React = require('react')
 /*
  * Fetches and shows list of images
  * from flickr api
+ * by default search tag = soccer
  */
 module.exports = React.createClass({
     getInitialState: function() {
@@ -17,7 +18,7 @@ module.exports = React.createClass({
             error: false,
             page: 1,
             data: [],
-            search: 'soccer'
+            search: null
         };
     },
     getDefaultProps: function () {
@@ -25,7 +26,6 @@ module.exports = React.createClass({
             config: {
                 'base_url': 'https://api.flickr.com/services/rest/',
                 'per_page': 10,
-                'search': 'soccer',
                 'api_key': '4259ba9d328b8baa76efa6a0461cd8b6'
             }
         }  
@@ -56,6 +56,7 @@ module.exports = React.createClass({
         // api url to send a get request to
         var url = this.props.config.base_url + 
             "?method=flickr.photos.search" + 
+            "&safe_search=1" + 
             "&tags=" + this.state.search +
             "&api_key=" + this.props.config.api_key + 
             "&page=" + this.state.page +
@@ -98,12 +99,9 @@ module.exports = React.createClass({
             error: true
         });
     },
-    componentDidMount: function(nPros, nState) {
-        this.loadImagesFromServer();
-    },
     componentDidUpdate: function(oPros, oState) {
         // only change if fetching new
-        // api page
+        // api page or changed search term
         if (oState.page == this.state.page && oState.search == this.state.search) {
             return false;
         }
@@ -137,15 +135,31 @@ module.exports = React.createClass({
             );  
         }
         // no error, display
-        return (
-            <div id="image-gallery" className="container">
-                <div className="header">
-                    <Pager page={this.state.page} changePage={this.changePage} noNextPage={this.state.stopFetching} />
-                    <h1 className="page-header">Gallery</h1>
+        if (this.state.search) { 
+            return (
+                <div id="image-gallery" className="container">
+                    <div className="header">
+                        <Pager page={this.state.page} changePage={this.changePage} noNextPage={this.state.stopFetching} />
+                        <h1 className="page-header">Gallery</h1>
+                    </div>
+                    <Search searchValue={this.state.search} setSearchValue={this.setSearchValue} />
+                    <ThumbnailList images={this.state.data} loading={this.state.loading} />
                 </div>
-                <Search searchValue={this.state.search} setSearchValue={this.setSearchValue} />
-                <ThumbnailList images={this.state.data} loading={this.state.loading} />
-            </div>
-        );
+            );
+        }
+        else
+        {
+            return (
+                 <div id="image-gallery" className="container">
+                    <div className="header">
+                        <h1 className="page-header">Gallery</h1>
+                    </div>
+                    <Search setSearchValue={this.setSearchValue} />
+                     <p align = "center">
+                        What are you looking for? Use the search box above.
+                    </p>
+                </div>
+            );
+        }
     }
 });

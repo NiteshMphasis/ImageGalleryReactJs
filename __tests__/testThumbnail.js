@@ -6,7 +6,8 @@ var React = require("react/addons"),
 /*
  * Tests thumbnail.jsx
  */
-describe("Thumbnail", function() {
+describe("Thumbnail", function() 
+{
     var image = {
         id: 1,
         owner: 567,
@@ -18,10 +19,8 @@ describe("Thumbnail", function() {
         isfriend: 0,
         isfamily: 0
     };
-    
     var thumbnail = "https://farm" + image.farm + ".staticflickr.com/" + image.server + "/" + image.id + "_" + image.secret + "_q.jpg";
     var image = "https://farm" + image.farm + ".staticflickr.com/" + image.server + "/" + image.id + "_" + image.secret + "_c.jpg";
-
     var thumbnailbox = TestUtils.renderIntoDocument(
         <Thumbnail imageUrl={image} thumbnailUrl={thumbnail} />
     );

@@ -2,7 +2,6 @@
 var configs = {
      'base_url': 'https://api.flickr.com/services/rest/',
      'per_page': 10,
-     'default_tag': 'soccer',
      'api_key': '4259ba9d328b8baa76efa6a0461cd8b6'
 };
 

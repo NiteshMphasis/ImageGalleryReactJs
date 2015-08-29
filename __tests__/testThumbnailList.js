@@ -5,7 +5,8 @@ var React = require('react/addons'),
     TestUtils = React.addons.TestUtils;
 
 describe('ThumbnailList', function() {
-    var photos = [{
+    var photos = [
+    {
         id: 1,
         owner: 567,
         secret: '8b27faaaa5',

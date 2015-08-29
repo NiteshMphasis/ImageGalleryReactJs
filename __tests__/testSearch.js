@@ -4,7 +4,8 @@ var React = require('react/addons'),
     TestUtils = React.addons.TestUtils;
 
 // tests Search.jsx
-describe('Search', function() {
+describe('Search', function() 
+{
     var goBackMockFunction = jest.genMockFunction();
     var search = "soccer";
     var searchbox = TestUtils.renderIntoDocument(
@@ -12,7 +13,7 @@ describe('Search', function() {
     );
     
     // checks renders search box
-    it('renders 1 div', function() {
+    it('renders 1 div with search input form', function() {
         var items = TestUtils.scryRenderedDOMComponentsWithClass(searchbox, 'searchbox');
         expect(items.length).toEqual(1);
     });
