@@ -1,0 +1,46 @@
+body {
+    font-family: "Helvetica neue", "Arial";
+    font-size: 14px;
+    color: white;
+    background: black;
+    line-height: 1.9;    
+    word-wrap: break-word;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+#image-gallery {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#image-gallery h1 {
+    margin-bottom: 5px;
+}
+
+.thumbnail {
+    border: 0;
+}
+
+.searchbox {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    max-width: 350px;
+}
+ul.pager li {
+    margin-right: 5px;
+}
+
+.thumbnail {
+    background: transparent;
+}
+
+input[type="text"] {
+    color: black;
+    padding-left: 5px;
+}
