@@ -137,7 +137,8 @@ module.exports = React.createClass({
                 </div>
             );  
         }
-        // no error, display
+        // there was a search term, show pager, search box
+        // and image list
         if (this.state.search !== null) { 
             return (
                 <div id="image-gallery" className="container">
@@ -152,6 +153,7 @@ module.exports = React.createClass({
         }
         else
         {
+            // no search term, don't show pager or image list
             return (
                  <div id="image-gallery" className="container">
                     <div className="header">

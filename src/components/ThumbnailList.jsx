@@ -31,8 +31,11 @@ module.exports = React.createClass({
         var size = sizeToLetterMap[size_text];
         return "https://farm" + image.farm + ".staticflickr.com/" + image.server + "/" + image.id + "_" + image.secret + "_" + size + ".jpg"  
     },
+    // show list of images
     render: function() {
         var that = this;
+        // show loading or no images found text when there are 
+        // no images or images are being fetched
         if (this.props.loading || !this.props.images || (this.props.images && this.props.images.length < 1)) {
             return (
                 <div className = "row imagelist">
@@ -42,6 +45,8 @@ module.exports = React.createClass({
                 </div>
             )
         }
+        // show list of images since there are images to
+        // display
         if (this.props.images && this.props.images.length) {
             var images = this.props.images;
             var that = this;

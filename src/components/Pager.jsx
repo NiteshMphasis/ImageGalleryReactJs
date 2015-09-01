@@ -28,6 +28,7 @@ module.exports = React.createClass({
         // if this is the first page
         // show next button don't show back button
         if (this.props.page == 1) {
+            // no next page, don't show both buttons
             if (this.props.noNextPage) {
                 return null;
             }
@@ -54,6 +55,7 @@ module.exports = React.createClass({
             }
             else
             {
+                // render both next and prev buttons
                 return (
                     <nav>
                         <ul className="pager">

@@ -6,6 +6,9 @@ var React = require('react')
  * value to search for photos
  */
 module.exports = React.createClass({
+    // handle submission of search box
+    // this will set the search value 
+    // in the parent class
     handleSubmit: function (e) {
         e.preventDefault();
         var search = React.findDOMNode(this.refs.search).value.trim();
@@ -15,6 +18,7 @@ module.exports = React.createClass({
         this.props.setSearchValue(search);
         return;
     },
+    // render search box
     render: function() {
         return ( 
            <div className ="searchbox">

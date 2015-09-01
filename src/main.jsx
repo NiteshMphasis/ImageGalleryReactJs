@@ -8,6 +8,7 @@ var configs = {
 var React = require('react'),
     App = require('./components/app')
 
+// render app
 React.render(
     <App config={configs} />,
     document.body

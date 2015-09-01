@@ -2,16 +2,18 @@
 var React = require('react')
 
 /*
- * Shows image that when you click 
- * on it, shows overlay
+ * Shows image. When you click on
+ * an image, shows overlay. 
  */
 module.exports = React.createClass({
     getDefaultProps: function () {
         return {
-            imageUrl: null,
-            thumbnailUrl: null
+            imageUrl: null,  // large image url 
+            thumbnailUrl: null // thumbnail url for image
         };
     },
+    // show image that when you click on 
+    // shows overlay of image
     render: function() {
         return ( 
            <div className="col-lg-3 col-md-3 col-xs-6 thumb">
