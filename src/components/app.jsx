@@ -31,7 +31,7 @@ module.exports = React.createClass({
         }
         return this.home();
     },
-    // show list of issues
+    // show gallery of images
     home: function(params) {
         return (
             <Gallery config={this.props.config} transitionTo={this.transitionTo} />

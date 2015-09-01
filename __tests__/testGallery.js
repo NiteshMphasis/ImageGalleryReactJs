@@ -13,7 +13,6 @@ describe('Gallery', function() {
     var config = {
          'base_url': 'https://api.flickr.com/services/rest/',
          'per_page': 10,
-         'default_tag': 'soccer',
          'api_key': '4259ba9d328b8baa76efa6a0461cd8b6'
     };
     
@@ -47,7 +46,7 @@ describe('Gallery', function() {
     // should render Pager and Search Box and ImageList
     describe ('Gallery with search term', function() {
         // tests renders Search box
-        it ('should render a Search', function () {
+        it ('should render a Search box', function () {
             gallery.setSearchValue('test');
             expect(gallery.state.search).toEqual('test');
             var li = TestUtils.scryRenderedComponentsWithType(gallery, Search);

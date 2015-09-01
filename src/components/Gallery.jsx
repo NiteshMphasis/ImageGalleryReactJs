@@ -83,7 +83,10 @@ module.exports = React.createClass({
         // then needed, stop fetching
         var stopFetching = false;
         var photos = data.photos.photo;
-        if (!photos || photos.length == 0 || photos.length < this.props.config.per_page) {
+        if (!photos || photos.length == 0) {
+            return;
+        }
+        else if (photos.length < this.props.config.per_page) {
             stopFetching = true;
         }  
         this.setState({
@@ -156,7 +159,7 @@ module.exports = React.createClass({
                     </div>
                     <Search setSearchValue={this.setSearchValue} />
                      <p align = "center">
-                        What are you looking for? Use the search box above.
+                            What are you looking for? Search for photos.
                      </p>
                  </div>
             );

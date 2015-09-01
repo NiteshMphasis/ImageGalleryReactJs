@@ -33,7 +33,7 @@ describe('ThumbnailList', function() {
         <ThumbnailList images={photos} loading={loading} />
     );
     
-    // tests that renders 1 div
+    // tests that renders 1 div with 2 images
     it('renders 1 div', function() {
         var items = TestUtils.scryRenderedDOMComponentsWithTag(thumbnailList, 'div');
         expect(items.length).toEqual(1);

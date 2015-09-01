@@ -5,14 +5,11 @@ body {
     word-wrap: break-word;
 }
 
-h1 {
-    text-align: center;
-}
-
 #image-gallery {
     max-width: 800px;
     margin-top: 10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #image-gallery h1 {
